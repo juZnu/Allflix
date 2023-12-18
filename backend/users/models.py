@@ -32,3 +32,6 @@ class AllflixUser(AbstractUser):
     
     objects = AllflixUserManager()
     
+    def __str__(self):
+        return self.email
+    
