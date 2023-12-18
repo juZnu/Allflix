@@ -37,7 +37,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    
+    #Added
+    'users',
+    'rest_framework',
 ]
+
+#Making default user
+AUTH_USER_MODEL = 'users.AllflixUser'
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
