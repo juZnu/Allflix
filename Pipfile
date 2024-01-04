@@ -8,6 +8,7 @@ django = "*"
 npm = "*"
 psycopg = "*"
 djangorestframework = "*"
+pyjwt = "*"
 
 [dev-packages]
 
