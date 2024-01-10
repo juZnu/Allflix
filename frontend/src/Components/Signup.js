@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 export class Signup extends Component {
     onFormSubmit  = (event) => {
         event.preventDefault()
+        const data = FormData(event.target)
+        
         
     }
   render() {

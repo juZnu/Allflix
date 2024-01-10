@@ -9,6 +9,7 @@ npm = "*"
 psycopg = "*"
 djangorestframework = "*"
 pyjwt = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
