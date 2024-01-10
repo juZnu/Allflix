@@ -61,6 +61,8 @@ MIDDLEWARE = [
     #Added
     'corsheaders.middleware.CorsMiddleware',
 ]
+#cors_headers
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = "backend.urls"
 
