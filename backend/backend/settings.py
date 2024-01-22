@@ -52,17 +52,19 @@ AUTH_USER_MODEL = 'users.AllFlixUser'
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     
-    #Added
-    'corsheaders.middleware.CorsMiddleware',
+    # #Added
+    # 'corsheaders.middleware.CorsMiddleware',
 ]
 #cors_headers
 CORS_ALLOW_ALL_ORIGINS = True
+
 
 ROOT_URLCONF = "backend.urls"
 

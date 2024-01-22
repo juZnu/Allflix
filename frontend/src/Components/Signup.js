@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
-
+import axios from 'axios'
+import backend from '../Variables'
 export class Signup extends Component {
     onFormSubmit  = (event) => {
-        event.preventDefault()
-        const data = FormData(event.target)
-        
-        
+          event.preventDefault()
+          
+          const data = new FormData(event.target)
+          axios.post(backend+'signup/',data)
+            .then(response => {
+              console.log(data,response)
+            })
+            .catch(response => {
+              console.log(data,response)
+            })
+
     }
   render() {
     return (
@@ -13,11 +21,15 @@ export class Signup extends Component {
         <form onSubmit={this.onFormSubmit}>
         <div>
             <label htmlFor="email" >Email:</label><br />
-            <input type='mail' id='email' name='email'/>
+            <input type='email' id='email' name='email'/>
         </div>
         <div>
             <label htmlFor='username'>Username:</label><br />
             <input type='text' id='username' name='username'/>
+        </div>
+        <div>
+            <label htmlFor='password'>Password:</label><br />
+            <input type='password' id='password' name='password'/>
         </div>
         <div>
             <label htmlFor="first_name">First Name:</label><br />

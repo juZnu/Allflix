@@ -13,22 +13,23 @@ def signup(request):
     if userSerializer.is_valid():
         userSerializer.save()
         return Response({'success': status.HTTP_200_OK})
-    return Response({'Error': status.HTTP_400_BAD_REQUEST})
+    return Response({'error': status.HTTP_400_BAD_REQUEST})
 
 
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
 def login(request):
     email = request.data.get('email')
     password = request.data.get('password')
     print(email,password)
     user = authenticate(email= email,password = password)
     if user:
-        return Response({'success':status.HTTP_200_OK,'Token':Token.objects.get(user=user).key})
+        token,created = Token.objects.get_or_create(user=user)
+        return Response({'success':status.HTTP_200_OK,'Token':token.key})
     else:
-        return Response({'ERROR':status.HTTP_401_UNAUTHORIZED})
+        return Response({'error':status.HTTP_401_UNAUTHORIZED},status=status.HTTP_401_UNAUTHORIZED)
   
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def data(request):
     user = request.user
     print(user.DOB)

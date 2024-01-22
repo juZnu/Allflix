@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+
 import './App.css';
-import Login from './Components/Login';
-import Signup from './Components/Signup';
-import { useState } from 'react';
+import Landing from './Components/Landing';
+import { Myprovider } from './Context/Myprovider';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
 
 function App() {
-  const [activation,setActivation] = useState(false)
-  const onClickHandler = () =>{
-    setActivation(!activation);
-  }
+  
   return (
-    <div>
-      <div>
-        <button disabled= {activation} onClick={() =>onClickHandler(activation)}>Login</button>
-        <button disabled = {!activation} onClick={() => onClickHandler(!activation)}>Signup</button>
-      </div>
-      <div>
-        {activation ? <Login /> : <Signup />}
-      </div>
-    </div>
+    <Myprovider >
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Landing />}/>
+          <Route path='/Login' element={<Landing active={false}/>}/>
+          <Route path='/signup' element={<Landing active={true}/>}/>
+        </Routes>
+      </BrowserRouter>
+      
+    </Myprovider>
   );
 }
 
