@@ -1,21 +1,23 @@
 
 import './App.css';
 import Landing from './Components/Landing';
+import Movies from './Components/Landing/Movies';
+import About from './Components/Landing/About';
 import { Myprovider } from './Context/Myprovider';
-import { BrowserRouter, Route, Routes} from 'react-router-dom';
+import { Route, Routes} from 'react-router-dom';
 
 function App() {
   
   return (
     <Myprovider >
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Landing />}/>
-          <Route path='/Login' element={<Landing active={false}/>}/>
-          <Route path='/signup' element={<Landing active={true}/>}/>
-        </Routes>
-      </BrowserRouter>
       
+        <Routes>
+          <Route path='/' element={<Landing active={true}/>}/>
+          <Route path='/signup' element={<Landing active={false}/>}/>
+          <Route path='/movies' element={<Movies/>}/>
+          <Route path='/about' element={<About />}/>
+        </Routes>
+    
     </Myprovider>
   );
 }

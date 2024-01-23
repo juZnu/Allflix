@@ -1,8 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+
+import { Mycontext } from '../../Context/Mycontext';
 
 export default function Navbar() {
+    // eslint-disable-next-line no-unused-vars
+    const [user,setUser] = useContext(Mycontext);
+    const navigate = useNavigate();
+    function onClickHandler(){
+        setUser({status: false})
+        navigate('/')
+    }
   return (
+    
     <div>
         <ul>
             <li>
@@ -15,7 +25,7 @@ export default function Navbar() {
                 <Link to='/about'>about</Link>
             </li>
             <li>
-                <Link to='/logout'>logout</Link>
+                <button onClick={onClickHandler}>Logout</button>
             </li>
         </ul>
 

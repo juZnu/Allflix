@@ -2,8 +2,8 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 import backend from '../Variables'
-// import { Myprovider } from '../Context/Myprovider';
 import { Mycontext } from '../Context/Mycontext';
+
 
 export class Login extends Component {
   static contextType = Mycontext
@@ -16,21 +16,23 @@ export class Login extends Component {
 
   onFormSubmit = (event) =>{
     event.preventDefault()
+    // eslint-disable-next-line no-unused-vars
     const [user,setUser] = this.context
     const data = new FormData(event.target)
     axios.post(backend+'login/',data)
     .then(response =>{
+
         setUser({ status: true, ...response.data });
-        console.log(user)
- 
+         
     })
     .catch(error => {
-      // this.setState(error);
+
       this.setState({ isValidUser: true });
         console.error(error);
     } )
   }
   render() {
+
     return (
       <div>
         <form onSubmit={this.onFormSubmit}>

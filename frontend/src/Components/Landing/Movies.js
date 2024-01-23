@@ -2,12 +2,12 @@ import React from 'react'
 import Navbar from './Navbar'
 
 
-export default function Home() {
+export default function Movies() {
   
   return (
     <>
         <Navbar />
-        <div>Home</div>
+        <div>Movies</div>
     </>
   )
 }
