@@ -11,7 +11,7 @@ export default function Movies() {
         <Navbar />
         <div>all Movies</div>
           <div>
-              {movies.map(movie => <MovieCard key={movie.id} movie={movie}/>)}
+              {movies.sort((a,b) => b.year - a.year).map(movie => <MovieCard key={movie.id} movie={movie}/>)}
           </div>
     </>
   )

@@ -15,7 +15,9 @@ export default function Landing({active}) {
   }
 
       if (user.status) {
-    return <Home />; // Assuming Home is the component for the '/' route
+    return <>
+      <Home />
+    </>; // Assuming Home is the component for the '/' route
   }
         return (
         <div>
