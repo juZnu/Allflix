@@ -33,4 +33,4 @@ def login(request):
 def data(request):
     user = request.user
     print(user.DOB)
-    return Response({'user':user.id} if user.id else {'Response': status.HTTP_404_NOT_FOUND}) 
+    return Response({'user':user.id,'first_name':user.first_name,'last_name':user.last_name,'email':user.email} if user.id else {'Response': status.HTTP_404_NOT_FOUND}) 
