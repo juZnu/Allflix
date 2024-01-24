@@ -2,9 +2,12 @@ import React, { useContext } from 'react'
 import { useState } from 'react';
 import Login from './Login';
 import Signup from './Signup';
-import {Link } from 'react-router-dom'
+import {Link, useLocation } from 'react-router-dom'
 import { Mycontext } from '../Context/Mycontext';
 import Home from './Landing/Home';
+import Navbar from './Landing/Navbar';
+import Movies from './Landing/Movies';
+import About from './Landing/About';
 
 
 export default function Landing({active}) {
@@ -13,10 +16,23 @@ export default function Landing({active}) {
   const onClickHandler = () =>{
     setActivation(preactivation => !preactivation);
   }
+  const location = useLocation()
+  let content;
+  switch(location.pathname){
+      case '/movies':
+      content = <Movies />;
+      break;
+      case '/about':
+      content = <About />;
+      break;
+      default:
+      content = <Home />;
 
+    }
       if (user.status) {
     return <>
-      <Home />
+    <Navbar />
+    {content}
     </>; // Assuming Home is the component for the '/' route
   }
         return (

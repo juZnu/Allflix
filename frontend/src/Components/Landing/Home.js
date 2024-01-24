@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import Navbar from './Navbar'
+
 import axios from 'axios'
 import backend from '../../Variables'
 import { Mycontext } from '../../Context/Mycontext'
@@ -21,7 +21,7 @@ export default function Home() {
   
   return (
     <>
-        <Navbar />
+        
         <div>
          <div>Recently added</div>
           <div>
