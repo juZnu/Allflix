@@ -20,7 +20,7 @@ export default function Navbar() {
           'Authorization': `Token ${user.Token}` // Assuming the API expects a Bearer token
         }
       }).then(response => {
-        console.log(response.data);
+        
         setName(response.data.first_name); 
       }).catch(error => {
         console.error('Error fetching data', error );

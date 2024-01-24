@@ -21,9 +21,8 @@ export class Login extends Component {
     const data = new FormData(event.target)
     axios.post(backend+'login/',data)
     .then(response =>{
-
         setUser({ status: true, ...response.data });
-         
+
     })
     .catch(error => {
 
